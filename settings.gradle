@@ -1,0 +1,41 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+// GitHub Personal Access Token
+private String getPAT() {
+    def encodedToken = getProperty("gpr.key")
+    new String(encodedToken.decodeBase64())
+}
+
+private String getGitHubUsername() {
+    getProperty("gpr.user")
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+        maven {
+            url = uri("https://maven.pkg.github.com/alphawallet/alpha-wallet-android")
+            credentials {
+                username = getGitHubUsername()
+                password = getPAT()
+            }
+        }
+        maven {
+            url = uri("https://maven.pkg.github.com/trustwallet/wallet-core")
+            credentials {
+                username = getGitHubUsername()
+                password = getPAT()
+            }
+        }
+    }
+}
+rootProject.name = "AlphaWalletLibraryJavaClient"
+include ':app'
