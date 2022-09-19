@@ -53,9 +53,8 @@ gpr.key=Your Base64 encode PAT
 
 ## FAQ
 **Error**
-```properties
-attribute destination not found
-```
+>attribute destination not found
+
 **Solution**
 Open the related layout xml file
 Search below line and delete `-auto` at the end
@@ -63,11 +62,10 @@ Search below line and delete `-auto` at the end
 xmlns:app="http://schemas.android.com/apk/res-auto"
 ```
 
-**Error**
-```properties
-4 files found with path 'META-INF/gradle/incremental.annotation.processors'.
-```
-**Solution**
+**Error** 
+>4 files found with path 'META-INF/gradle/incremental.annotation.processors'.
+
+**Solution** 
 Add below code into `app/build.gradle` -> `android`
 ```
 packagingOptions {
@@ -76,10 +74,8 @@ packagingOptions {
 ```
 
 **Error**
-```properties
-Duplicate class android.support.v4.app.INotificationSideChannel found in modules core-1.8.0-runtime (androidx.core:core:1.8.0) and support-compat-26.1.0-runtime (com.android.support:support-compat:26.1.0)
-```
-**Solution**
+>Duplicate class android.support.v4.app.INotificationSideChannel found in modules core-1.8.0-runtime (androidx.core:core:1.8.0) and support-compat-26.1.0-runtime (com.android.support:support-compat:26.1.0)
+**Solution** 
 Ensure `{ProjectRoot}./gradle.properties` includes:
 ```
 android.useAndroidX=true
