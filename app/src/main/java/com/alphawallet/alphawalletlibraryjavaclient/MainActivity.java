@@ -2,8 +2,10 @@ package com.alphawallet.alphawalletlibraryjavaclient;
 
 import static com.alphawallet.app.service.KeystoreAccountService.KEYSTORE_FOLDER;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -33,6 +35,7 @@ public class MainActivity extends AppCompatActivity
     private TextView tvSig;
     private TextView tvAddress;
     private EditText etMsg;
+    private Button btnBrowser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -47,6 +50,11 @@ public class MainActivity extends AppCompatActivity
 
         btnSign.setOnClickListener(view -> {
             signMessage();
+        });
+
+        btnBrowser.setOnClickListener(view -> {
+            Intent intent = new Intent(getApplicationContext(), MyBrowserActivity.class);
+            startActivity(intent);
         });
     }
 
@@ -96,5 +104,6 @@ public class MainActivity extends AppCompatActivity
         tvAddress = findViewById(R.id.tvAddress);
         btnImport = findViewById(R.id.btn_import);
         tvSig = findViewById(R.id.tvSig);
+        btnBrowser = findViewById(R.id.btn_browser);
     }
 }
